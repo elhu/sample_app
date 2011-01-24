@@ -57,6 +57,11 @@ describe "LayoutLinks" do
       click_button
     end
     
+    it "should have a Users page at /users" do
+      get '/users'
+      response.should have_selector('title', :content => "All users")
+    end
+  
     it "should have a signout link" do
       visit root_path
       response.should have_selector("a", :href => signout_path,
